@@ -46,15 +46,15 @@
   <script>
   // Preview cart summary (from localStorage)
   const products = [
-    { id: 1, name: "Blue Checked Shirt", price: 799, desc: "Cotton, Slim-fit", img: "assets/shirt1.jpg", cat: "Shirts" },
-    { id: 2, name: "Casual White Tee", price: 499, desc: "Pure cotton. Bestseller", img: "assets/tshirt1.jpg", cat: "T-Shirts" },
-    { id: 3, name: "Classic Jeans", price: 1199, desc: "Blue, stretch", img: "assets/jeans1.jpg", cat: "Jeans" },
-    { id: 4, name: "Brown Leather Belt", price: 599, desc: "Genuine leather", img: "assets/belt1.jpg", cat: "Accessories" },
-    { id: 5, name: "Grey Formal Pants", price: 999, desc: "Poly-viscose blend", img: "assets/pants1.jpg", cat: "Pants" },
-    { id: 6, name: "Black Polo T-shirt", price: 699, desc: "Regular fit, comfy", img: "assets/tshirt2.jpg", cat: "T-Shirts" },
-    { id: 7, name: "Formal Blue Shirt", price: 899, desc: "Office favorite", img: "assets/shirt2.jpg", cat: "Shirts" },
-    { id: 8, name: "Sporty Watch", price: 1599, desc: "Water-resistant", img: "assets/watch1.jpg", cat: "Accessories" }
-  ];
+    { id: 1, name: "Blue Checked Shirt", price: 799, desc: "Cotton, Slim-fit", img: "assets/img/blue_shirt.webp", cat: "Shirts" },
+  { id: 2, name: "Casual White Tee", price: 499, desc: "Pure cotton. Bestseller", img: "assets/img/shirt2.webp", cat: "T-Shirts" },
+  { id: 3, name: "Classic Jeans", price: 1199, desc: "Blue, stretch", img: "assets/img/jeans.webp", cat: "Jeans" },
+  { id: 4, name: "Brown Leather Belt", price: 599, desc: "Genuine leather", img: "assets/img/belts.webp", cat: "Accessories" },
+  { id: 5, name: "Grey Formal Pants", price: 999, desc: "Poly-viscose blend", img: "assets/img/pant1.webp", cat: "Pants" },
+  { id: 6, name: "Black Polo T-shirt", price: 699, desc: "Regular fit, comfy", img: "assets/img/t_shirt.webp", cat: "T-Shirts" },
+  { id: 7, name: "Formal Blue Shirt", price: 899, desc: "Office favorite", img: "assets/img/shirt3.webp", cat: "Shirts" },
+  { id: 8, name: "Kaezri Wallet", price: 349, desc: "Royal Wallet", img: "assets/img/wallet.png", cat: "Accessories" }
+];
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const orderSummary = document.getElementById("orderSummary");
   let total = 0;
