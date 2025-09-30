@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Awe Fashion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS & Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Awe Fashion</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <form class="d-flex me-4" id="searchForm">
+          <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+        </form>
+        <button class="btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+          <i class="bi bi-cart3 fs-4 text-light"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <header class="container mt-4">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner rounded-4 shadow">
+        <div class="carousel-item active">
+          <img src="assets/img/img4.png" class="d-block w-100" alt="Banner1">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/img2.png" class="d-block w-100" alt="Banner2">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </header>
+  <!-- Categories Filter -->
+  <div class="container my-4" id="shop">
+    <div class="d-flex mb-3">
+      <label for="categorySelect" class="form-label me-2">Filter by:</label>
+      <select id="categorySelect" class="form-select w-auto">
+        <option value="">All Categories</option>
+        <option value="Shirts">Shirts</option>
+        <option value="T-Shirts">T-Shirts</option>
+        <option value="Pants">Pants</option>
+        <option value="Jeans">Jeans</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+    </div>
+    <!-- Products Grid -->
+    <div class="row" id="productGrid">
+      <!-- JS inserts product cards -->
+    </div>
+  </div>
+  <!-- Cart Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Shopping Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems"></div>
+      <div class="my-3 fw-bold">Total: ₹<span id="cartTotal">0</span></div>
+      <a href="checkout.html" class="btn btn-primary w-100 mt-auto">Checkout</a>
+    </div>
+  </div>
+  <!-- Contact & Footer -->
+  <footer class="bg-dark text-light pt-5 mt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h5>Awe Fashion</h5>
+          <p>Your trusted store for men's fashion. Quality. Style. Value.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-light">Home</a></li>
+            <li><a href="#shop" class="text-decoration-none text-light">Shop</a></li>
+            <li><a href="#" class="text-decoration-none text-light">Categories</a></li>
+            <li><a href="checkout.html" class="text-decoration-none text-light">Checkout</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4" id="contact">
+          <h5>Contact</h5>
+          <div class="d-flex gap-2 mb-2">
+            <a href="#" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/awefashion_menswear/" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+          </div>
+          <div>&copy; 2025 Awe Fashion. All Rights Reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap JS & Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

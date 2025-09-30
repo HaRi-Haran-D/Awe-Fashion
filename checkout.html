@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - SimpleShop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4">Checkout</h2>
+    <div class="row">
+      <!-- Checkout Form -->
+      <div class="col-md-7">
+        <form id="checkoutForm" novalidate>
+          <div class="mb-3"><label class="form-label">Name*</label><input required name="name" class="form-control"></div>
+          <div class="mb-3"><label class="form-label">Email*</label><input type="email" required name="email" class="form-control"></div>
+          <div class="mb-3"><label class="form-label">Address*</label><textarea required name="address" class="form-control"></textarea></div>
+          <div class="mb-3">
+            <label class="form-label">Payment Method*</label>
+            <select name="payment" required class="form-select">
+              <option value="">Select</option>
+              <option value="COD">Cash on Delivery</option>
+              <option value="card">Credit/Debit Card</option>
+              <option value="upi">UPI</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+        <div class="alert alert-success d-none mt-3" id="successMsg">
+          Order placed successfully! You'll receive confirmation shortly.
+        </div>
+      </div>
+      <!-- Order Summary -->
+      <div class="col-md-5">
+        <div class="card shadow-sm">
+          <div class="card-header fw-bold">Order Summary</div>
+          <div class="card-body" id="orderSummary">
+            <!-- JS Inserts summary from cart -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  // Preview cart summary (from localStorage)
+  const products = [
+    { id: 1, name: "Blue Checked Shirt", price: 799, desc: "Cotton, Slim-fit", img: "assets/shirt1.jpg", cat: "Shirts" },
+    { id: 2, name: "Casual White Tee", price: 499, desc: "Pure cotton. Bestseller", img: "assets/tshirt1.jpg", cat: "T-Shirts" },
+    { id: 3, name: "Classic Jeans", price: 1199, desc: "Blue, stretch", img: "assets/jeans1.jpg", cat: "Jeans" },
+    { id: 4, name: "Brown Leather Belt", price: 599, desc: "Genuine leather", img: "assets/belt1.jpg", cat: "Accessories" },
+    { id: 5, name: "Grey Formal Pants", price: 999, desc: "Poly-viscose blend", img: "assets/pants1.jpg", cat: "Pants" },
+    { id: 6, name: "Black Polo T-shirt", price: 699, desc: "Regular fit, comfy", img: "assets/tshirt2.jpg", cat: "T-Shirts" },
+    { id: 7, name: "Formal Blue Shirt", price: 899, desc: "Office favorite", img: "assets/shirt2.jpg", cat: "Shirts" },
+    { id: 8, name: "Sporty Watch", price: 1599, desc: "Water-resistant", img: "assets/watch1.jpg", cat: "Accessories" }
+  ];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const orderSummary = document.getElementById("orderSummary");
+  let total = 0;
+  if (cart.length === 0) orderSummary.innerHTML = "<div>Your cart is empty!</div>";
+  else {
+    orderSummary.innerHTML = cart.map(item => {
+      const prod = products.find(p => p.id === item.id);
+      total += prod.price * item.q;
+      return `<div class="d-flex justify-content-between mb-2">
+        <span>${prod.name} <small class="text-secondary">x${item.q}</small></span>
+        <span>₹${prod.price * item.q}</span>
+      </div>`;
+    }).join("") + `<div class="border-top pt-2 fw-bold d-flex justify-content-between"><span>Total</span><span>₹${total}</span></div>`;
+  }
+  // Simple validation
+  document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let valid = true;
+    this.querySelectorAll("[required]").forEach(el => {
+      if (!el.value.trim()) valid = false;
+      el.classList.toggle("is-invalid", !el.value.trim());
+    });
+    if (!valid) return;
+    document.getElementById("successMsg").classList.remove("d-none");
+    localStorage.removeItem("cart");
+    setTimeout(() => window.location.href = "index.html", 2000);
+  });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+  background: #121212;
+  color: #f5f5f5;
+}
+.card {
+  border-radius: 1.2rem;
+  transition: box-shadow .2s;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.17);
+}
+.hero-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #000a;
+}
+.carousel-caption {
+  background: rgba(26,26,26,0.55);
+  border-radius: 1em;
+  padding: 1.2em;
+}
+footer {
+  border-top: solid 1px #222;
+}
+a {
+  color: var(--bs-light);
+}
+/* Make footer links light on hover */
+footer a:hover {
+  color: var(--bs-primary);
+}
+.offcanvas {
+  min-width: 325px;
+}
+/* Responsive product grid gap tweak */
+#productGrid .card {
+  min-height: 340px;
+}
+@media (min-width: 768px) {
+  #productGrid .card {
+    min-height: 360px;
+  }
+}
+@media (min-width: 1200px) {
+  #productGrid .card {
+    min-height: 380px;
+  }
+}
